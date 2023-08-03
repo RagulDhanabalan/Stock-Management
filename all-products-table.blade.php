@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
-    
+
 </head>
 
 <body class="text-gray-700 p-2 w-full mx-auto rounded">
-    
+
     <div class="container p-6 w-80 mx-auto">
         {{-- session message start --}}
         <div>
@@ -39,8 +39,27 @@
                     </script>
                     </div>
             @endif
+            @if (Session::has('update'))
+                <div class="container mx-auto mt-10 space-y-5">
+                    <!-- Alert Success  -->
+                    <div class="flex justify-between bg-green-500 shadow-inner rounded p-3">
+                        <p class="self-center text-white">
+                        {{ Session::get('update') }}
+                        </p>
+                        <strong class="text-xl align-center text-white cursor-pointer alert-del">&times;</strong>
+                    </div>
+                    <script>
+                        var alert_del = document.querySelectorAll('.alert-del');
+                        alert_del.forEach((x) =>
+                            x.addEventListener('click', function() {
+                                x.parentElement.classList.add('hidden');
+                            })
+                        );
+                    </script>
+                    </div>
+            @endif
         </div>
-        
+
         {{-- session message end --}}
         <h2 class="text-gray-600 mb-3 font-bold text-center">Products</h2>
         <button class="flex items-center w-full mx-auto">
@@ -103,5 +122,3 @@
         {{ $products->links() }}
     </div>
 </body>
-
-</html>

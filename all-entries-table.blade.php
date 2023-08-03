@@ -87,9 +87,7 @@
             {{ $entries->links() }}
         </div>
     </div>
-    
-</div>
-    
-</body>
 
-</html>
+</div>
+
+</body>

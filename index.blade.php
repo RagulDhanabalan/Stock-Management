@@ -87,5 +87,3 @@
         </div>
     @endif
 </body>
-
-</html>

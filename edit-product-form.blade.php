@@ -75,7 +75,7 @@
             <div class="mb-1 text-center">
                 <button type="submit" class="bg-green-600 hover:bg-green-400 text-white py-1 px-3 border-b-4 border-green-700 hover:border-green-500 rounded">Update</button>
             </a>
-                <a href="/all-products"
+                <a href="/products"
                     class="bg-blue-500 hover:bg-blue-400 text-white py-1 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                     Back</a>
                 <a href="/index"
@@ -87,5 +87,3 @@
 
 </body>
 </html>
-
-

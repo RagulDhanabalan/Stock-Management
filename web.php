@@ -1,9 +1,13 @@
 <?php
 
+
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Stock_Management;
-use App\Models\Product;
-use App\Models\Entry;
+use App\Http\Controllers\EntriesController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,27 +19,30 @@ use App\Models\Entry;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// -----------------------------------------------------------------------
 
 // route for the index page
-Route::get('/index',[Stock_Management::class,'index']);
+Route::get('/index', function () {
+    return view('Stock_Management.index');
+});
+
+// ------------------------------------------------------------------------
+
 //route for all-products list table
-Route::get('/products',[Stock_Management::class, 'all_products']);
+Route::get('/products',[ProductsController::class, 'all_products']);
 //route for all-entries list table
-Route::get('/entries',[Stock_Management::class, 'all_entries']);
+Route::get('/entries',[EntriesController::class, 'all_entries']);
 //route for create products form
-Route::get('/products/create',[Stock_Management::class, 'create_products']);
+Route::get('/products/create',[ProductsController::class, 'create_products']);
 //route for inserting data to database using create products form
-Route::post('/insert-products',[Stock_Management::class, 'insert_products']);
+Route::post('/insert-products',[ProductsController::class, 'insert_products']);
 //route for create entries form
-Route::get('/entries/create',[Stock_Management::class, 'create_entries']);
+Route::get('/entries/create',[EntriesController::class, 'create_entries']);
 //route for inserting data to database using create entries form
-Route::post('/insert-entries',[Stock_Management::class, 'insert_entries']);
+Route::post('/insert-entries',[EntriesController::class, 'insert_entries']);
 //route for view page of all unique product entries
-Route::get('products/{id}/view-entries/',[Stock_Management::class, 'view_product_entries']);
+Route::get('products/{id}/view-entries/',[ProductsController::class, 'view_product_entries']);
 // for edit product ( form )
-Route::get('products/{id}/edit/',[Stock_Management::class,'edit_product']);
+Route::get('products/{id}/edit/',[ProductsController::class,'edit_product']);
 // for updating product details
-Route::post('products/{id}/update',[Stock_Management::class,'update_product']);
+Route::post('products/{id}/update',[ProductsController::class,'update_product']);
